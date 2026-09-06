@@ -3,7 +3,7 @@ import axios from "axios";
 import GoogleLoginButton from "./components/GoogleLoginButton";
 import "./App.css";
 
-const API = "https://social-feed-dn0q.onrender.com/api/v1";
+const API = "https://social-feed-backend.onrender.com/api/v1";
 
 function App() {
     const [posts, setPosts] = useState([]);
