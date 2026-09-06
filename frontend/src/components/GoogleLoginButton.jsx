@@ -1,11 +1,13 @@
 import { GoogleLogin } from "@react-oauth/google";
 import axios from "axios";
 
+const API = "https://social-feed-dn0q.onrender.com/api/v1";
+
 const GoogleLoginButton = () => {
     const handleSuccess = async (response) => {
         try {
             const result = await axios.post(
-                "http://localhost:5000/api/v1/auth/google",
+                `${API}/auth/google`,
                 {
                     credential: response.credential,
                 }
@@ -14,6 +16,8 @@ const GoogleLoginButton = () => {
             localStorage.setItem("token", result.data.token);
 
             console.log("Logged in:", result.data.user);
+
+            window.location.reload();
         } catch (error) {
             console.error("Login failed:", error);
         }
